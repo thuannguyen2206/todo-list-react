@@ -1,25 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import InputTodo from "./components/InputTodo";
+import ListTodo from "./components/ListTodo";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: ["hello", "world"],
+    };
+
+    this.handleCreateTodo = this.handleCreateTodo.bind(this);
+    this.handleRemoveTodo = this.handleRemoveTodo.bind(this);
+  }
+
+  handleCreateTodo(todo) {
+    const index = this.state.todos.indexOf(todo);
+    if (index > -1) {
+      // đã có trong mảng => không thêm vào
+      console.log("This todo already exist");
+    } else {
+      const arr = [todo, ...this.state.todos];
+      this.setState({
+        todos: arr,
+      });
+    }
+  }
+
+  // xóa todo item
+  handleRemoveTodo(todo) {
+    const arr = this.state.todos;
+    const index = arr.indexOf(todo);
+    if (index > -1) {
+      arr.splice(index, 1);
+      this.setState({
+        todos: arr,
+      });
+    }
+  }
+
+  render() {
+    return (
+      <>
+        <div className="wrapper">
+          <InputTodo createTask={this.handleCreateTodo}></InputTodo>
+          <ListTodo
+            todos={this.state.todos}
+            removeTodo={this.handleRemoveTodo}
+          ></ListTodo>
+        </div>
+      </>
+    );
+  }
 }
 
 export default App;

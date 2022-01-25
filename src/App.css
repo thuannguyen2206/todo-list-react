@@ -1,38 +1,119 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  
+  body{
+    height: 100vh;
+    background: linear-gradient(to right, #ffe000, #799f0c);
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .wrapper{
+    width: 400px;
+    margin: 50px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+  }
+  
+  .wrapper form{
+    display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  justify-content: space-between;
+  border-bottom: 1px solid #aaa;
+    padding: 10px 20px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .wrapper form input{
+    width: 100%;
+    padding: 5px 10px 5px 0;
+    border: none;
+    outline: none;
+    font-size: 20px;
   }
-}
+  
+  .wrapper form button{
+    padding: 5px;
+    font-size: 18px;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 15px;
+    background: yellowgreen;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  
+  .wrapper form button:hover{
+    background: #7d8d53;
+  }
+  
+  .todos{
+    list-style-type: none;
+    font-size: 22px;
+    max-height: 80vh;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+  
+  .todos li{
+    border-top: 1px solid rgb(224, 224, 224);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .todos li:hover{
+    background-color: rgb(224, 224, 224);
+  }
+  
+  .todos li i{
+    opacity: 0;
+    color: rgb(231, 71, 71);
+  }
+  
+  .todos li:hover i{
+    opacity: 1;
+  }
+  
+  .todos li span{
+    overflow: hidden;
+    white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+  }
+  
+  .complete span{
+    text-decoration: line-through;
+    color: #b6b6b6;
+  }
+  
+  .todos::-webkit-scrollbar-track
+  {
+  --webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+  }
+  
+  .todos::-webkit-scrollbar
+  {
+  width: 10px;
+  background-color: #F5F5F5;
+  }
+  
+  .todos::-webkit-scrollbar-thumb
+  {
+  background-color: #272727;
+  border: 2px solid #cacfc9;
+  }
+  
